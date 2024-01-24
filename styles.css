@@ -28,6 +28,12 @@ hr {
   margin-bottom: 12px;
   border: 0.2px solid;
 }
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #181818;
+}
 .weather-app-container {
   width: 673px;
   margin: 150px auto;
