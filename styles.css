@@ -36,7 +36,9 @@ a {
 }
 .weather-app-container {
   width: 673px;
-  margin: 150px auto;
+  margin: 250px auto;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px 5px #0e0e0e60;
 }
 
 .app-title {
