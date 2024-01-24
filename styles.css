@@ -1,0 +1,13 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/111/930/original/julian-OY1irRHVUp0-unsplash.jpg?1706099081");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Urbanist", sans-serif;
+}
+.weather-app-container {
+  background-color: #eae9e2;
+  width: 673px;
+  margin: 150px auto;
+  padding: 30px;
+  border-radius: 25px;
+}
