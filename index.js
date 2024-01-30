@@ -18,34 +18,34 @@ function updateTemperature(response) {
 
   if (weatherCondition === "clear sky") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/614/original/sun.png?1706464603";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344";
   } else if (weatherCondition === "few clouds") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/624/original/cloud.png?1706464787";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/961/original/cloud.png?1706624710";
   } else if (weatherCondition === "scattered clouds") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/624/original/cloud.png?1706464787";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/960/original/cloudsun.png?1706624704";
   } else if (weatherCondition === "broken clouds") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/618/original/clouded.png?1706464645";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/959/original/doublecloud.png?1706624698";
   } else if (weatherCondition === "shower rain") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/622/original/strong_rain.png?1706464692";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
   } else if (weatherCondition === "rain") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/619/original/light_rain.png?1706464654";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/956/original/lightrain.png?1706624670";
   } else if (weatherCondition === "thunderstorm") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/623/original/thunderstorm.png?1706464700";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/953/original/storm.png?1706624653";
   } else if (weatherCondition === "light snow") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/621/original/snow.png?1706464669";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?1706624659";
   } else if (weatherCondition === "mist") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/620/original/mist.png?1706464661";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
   } else if (weatherCondition === "overcast clouds") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/618/original/clouded.png?1706464645";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/959/original/doublecloud.png?1706624698";
   } else if (weatherCondition === "light rain") {
     iconUrl =
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/619/original/light_rain.png?1706464654";
@@ -54,10 +54,13 @@ function updateTemperature(response) {
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/622/original/strong_rain.png?1706464692";
   } else if (weatherCondition === "fog") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/620/original/mist.png?1706464661";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
   } else if (weatherCondition === "snow") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/621/original/snow.png?1706464669";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?1706624659";
+  } else if (weatherCondition === "clear sky night") {
+    iconUrl =
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/955/original/moon.png?1706624665";
   }
 
   let weatherIcon = document.querySelector("#icon");

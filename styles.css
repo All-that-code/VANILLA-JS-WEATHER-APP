@@ -6,20 +6,23 @@ body {
 }
 
 h1 {
-  font-size: 50px;
-  margin: 70px 15px 0 30px;
+  font-size: 34px;
+  margin: 80px 15px 0 30px;
 }
 
 p {
+  font-size: 12px;
   font-weight: 200;
   margin-left: 30px;
   line-height: normal;
   margin-top: 0;
+  letter-spacing: 0.6px;
 }
 
 img {
-  width: 180px;
-  margin-top: 50px;
+  width: 80px;
+  margin-top: 75px;
+  max-height: 160px;
 }
 
 hr {
@@ -35,7 +38,7 @@ a {
   color: #181818;
 }
 .weather-app-container {
-  width: 673px;
+  width: 640px;
   margin: 250px auto;
   border-radius: 15px;
   box-shadow: 10px 10px 10px 5px #0e0e0e60;
@@ -60,7 +63,7 @@ a {
 #city-input {
   background-color: #f27333;
   border: none;
-  width: 480px;
+  width: 400px;
   color: #181818;
   padding: 5px 0 5px 0;
   outline: none;
@@ -84,40 +87,45 @@ a {
   margin-right: 5px;
 }
 
+.weather-results {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 5px 0 20px 0;
+}
+
 .weather-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: #eae9e2;
-  padding: 5px 0 20px 0;
 }
 
-.temperature {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  margin-right: 30px;
-  line-height: 1;
-}
-
-.humidity-wind {
-  text-align: right;
-  margin-right: 30px;
+.units {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 16px;
+  margin-left: 0;
 }
 
 .current-temperature {
   display: flex;
   flex-direction: row;
-  font-size: 80px;
-  font-weight: 600;
   margin-top: 60px;
-}
-.units {
-  font-size: 20px;
-  font-weight: 400;
-  margin-top: 10px;
+  margin-right: 30px;
+  margin-left: 20px;
 }
 
+.temp-value {
+  font-size: 90px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+#humidity,
+#wind {
+  font-weight: 500;
+}
 footer {
   background-color: #eae9e2;
   font-weight: 200;
