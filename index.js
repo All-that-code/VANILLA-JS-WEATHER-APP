@@ -61,6 +61,15 @@ function updateTemperature(response) {
   } else if (weatherCondition === "clear sky night") {
     iconUrl =
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/955/original/moon.png?1706624665";
+  } else if (weatherCondition === "intensity drizzle") {
+    iconUrl =
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+  } else if (weatherCondition === "light intensity drizzle") {
+    iconUrl =
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+  } else if (weatherCondition === "smoke") {
+    iconUrl =
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
   }
 
   let weatherIcon = document.querySelector("#icon");
@@ -72,6 +81,8 @@ function updateTemperature(response) {
   cityElement.innerHTML = response.data.city;
   tempElement.innerHTML = roundedTemp;
   timeElement.innerHTML = formatDate(date);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -110,32 +121,87 @@ function showCity(event) {
 let searchElement = document.querySelector("#search-form");
 searchElement.addEventListener("submit", showCity);
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#weather-forecast");
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+function getForecast(city) {
+  let apiKey = "8o03bb70ba39844fdc4a5a5t25cc70b6";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
-    <div class="day-1">
-    <div class="forecast-date">${day}</div>
-    <img
-      class="forecast-icon"
-      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344"
-    />
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      let weatherCondition = day.condition.description;
+      let iconUrl = getForecastIconUrl(weatherCondition);
+
+      forecastHtml =
+        forecastHtml +
+        `
+    <div class="forecast-day">
+    <div class="forecast-date">${formatDay(day.time)}</div>
+    <img src="${iconUrl}" class="forecast-icon" id="icon" />
     <span class="forecast-temperatures">
-      <span class="forecast-max-temp">18°</span>
-      <span class="forecast-min-temp">12°</span>
+      <span class="forecast-max-temp">${Math.round(
+        day.temperature.maximum
+      )}°</span>
+      <span class="forecast-min-temp">${Math.round(
+        day.temperature.minimum
+      )}°</span>
     </span>
   </div>
-  
 `;
+    }
   });
 
+  let forecastElement = document.querySelector("#weather-forecast");
   forecastElement.innerHTML = forecastHtml;
 }
 
+function getForecastIconUrl(weatherCondition) {
+  if (weatherCondition === "clear sky") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344";
+  } else if (weatherCondition === "few clouds") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/961/original/cloud.png?1706624710";
+  } else if (weatherCondition === "scattered clouds") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/960/original/cloudsun.png?1706624704";
+  } else if (weatherCondition === "broken clouds") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/959/original/doublecloud.png?1706624698";
+  } else if (weatherCondition === "shower rain") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+  } else if (weatherCondition === "rain") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/956/original/lightrain.png?1706624670";
+  } else if (weatherCondition === "thunderstorm") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/953/original/storm.png?1706624653";
+  } else if (weatherCondition === "light snow") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?1706624659";
+  } else if (weatherCondition === "mist") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+  } else if (weatherCondition === "overcast clouds") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/959/original/doublecloud.png?1706624698";
+  } else if (weatherCondition === "light rain") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/619/original/light_rain.png?1706464654";
+  } else if (weatherCondition === "moderate rain") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+  } else if (weatherCondition === "fog") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+  } else if (weatherCondition === "snow") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?1706624659";
+  } else if (weatherCondition === "clear sky night") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/955/original/moon.png?1706624665";
+  } else if (weatherCondition === "intensity drizzle") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+  } else if (weatherCondition === "light intensity drizzle") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+  } else weatherCondition === "smoke";
+  return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+}
+
 searchLocation("Madrid");
-displayForecast();
