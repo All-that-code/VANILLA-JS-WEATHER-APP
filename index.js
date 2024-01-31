@@ -70,6 +70,9 @@ function updateTemperature(response) {
   } else if (weatherCondition === "smoke") {
     iconUrl =
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+  } else if (weatherCondition === "heavy intensity rain") {
+    iconUrl =
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
   }
 
   let weatherIcon = document.querySelector("#icon");
@@ -205,7 +208,9 @@ function getForecastIconUrl(weatherCondition) {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
   } else if (weatherCondition === "rain and snow") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?170662465";
-  } else weatherCondition === "sky is clear";
+  } else if (weatherCondition === "rain and snow") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?170662465";
+  } else weatherCondition === "heavy intensity rain";
   return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344";
 }
 
