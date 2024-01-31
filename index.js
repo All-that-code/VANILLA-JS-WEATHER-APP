@@ -135,6 +135,7 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
+  console.log(response.data);
   let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
@@ -169,25 +170,23 @@ function getForecastIconUrl(weatherCondition) {
   if (weatherCondition === "clear sky") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344";
   } else if (weatherCondition === "few clouds") {
-    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/961/original/cloud.png?1706624710";
-  } else if (weatherCondition === "scattered clouds") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/960/original/cloudsun.png?1706624704";
+  } else if (weatherCondition === "scattered clouds") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/961/original/cloud.png?1706624710";
   } else if (weatherCondition === "broken clouds") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/959/original/doublecloud.png?1706624698";
   } else if (weatherCondition === "shower rain") {
-    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/128/original/lightarainII.png?1706729672";
   } else if (weatherCondition === "rain") {
-    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/956/original/lightrain.png?1706624670";
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/128/original/lightarainII.png?1706729672";
   } else if (weatherCondition === "thunderstorm") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/953/original/storm.png?1706624653";
   } else if (weatherCondition === "light snow") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?1706624659";
-  } else if (weatherCondition === "mist") {
-    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
   } else if (weatherCondition === "overcast clouds") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/959/original/doublecloud.png?1706624698";
   } else if (weatherCondition === "light rain") {
-    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/619/original/light_rain.png?1706464654";
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/956/original/lightrain.png?1706624670";
   } else if (weatherCondition === "moderate rain") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
   } else if (weatherCondition === "fog") {
@@ -200,8 +199,14 @@ function getForecastIconUrl(weatherCondition) {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
   } else if (weatherCondition === "light intensity drizzle") {
     return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
-  } else weatherCondition === "smoke";
-  return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+  } else if (weatherCondition === "mist") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+  } else if (weatherCondition === "smoke") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
+  } else if (weatherCondition === "rain and snow") {
+    return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?170662465";
+  } else weatherCondition === "sky is clear";
+  return "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344";
 }
 
 searchLocation("Madrid");
