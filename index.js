@@ -51,7 +51,7 @@ function updateTemperature(response) {
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/619/original/light_rain.png?1706464654";
   } else if (weatherCondition === "moderate rain") {
     iconUrl =
-      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/622/original/strong_rain.png?1706464692";
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
   } else if (weatherCondition === "fog") {
     iconUrl =
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/015/original/fog.png?1706638911";
@@ -110,4 +110,32 @@ function showCity(event) {
 let searchElement = document.querySelector("#search-form");
 searchElement.addEventListener("submit", showCity);
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+    <div class="day-1">
+    <div class="forecast-date">${day}</div>
+    <img
+      class="forecast-icon"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/113/016/original/sun.png?1706639344"
+    />
+    <span class="forecast-temperatures">
+      <span class="forecast-max-temp">18°</span>
+      <span class="forecast-min-temp">12°</span>
+    </span>
+  </div>
+  
+`;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
 searchLocation("Madrid");
+displayForecast();
