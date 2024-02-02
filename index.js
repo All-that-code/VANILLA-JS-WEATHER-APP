@@ -73,7 +73,8 @@ function updateTemperature(response) {
   } else if (weatherCondition === "heavy intensity rain") {
     iconUrl =
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/957/original/heavyrain.png?1706624683";
-  }
+  } else if (weatherCondition === "rain and snow") {
+    iconUrl = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/112/954/original/snow.png?170662465";
 
   let weatherIcon = document.querySelector("#icon");
   weatherIcon.innerHTML = `<img src="${iconUrl}"/>`;
